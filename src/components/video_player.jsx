@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Link2Icon } from 'lucide-react';
+import { Button } from './ui/button';
 
 const videos = [
     {
@@ -16,7 +19,7 @@ const videos = [
 const VideoPlayer = () => {
     return (
         <>
-        <div className="text-4xl text-center mt-8 text-white">Watch our videos</div>
+        <div className="text-4xl text-center mt-8 text-white font-bold" id="section1">Watch our videos</div>
         <div className="flex flex-wrap justify-center gap-4 p-4">
             {videos.map((video) => (
                 <div 
@@ -36,6 +39,10 @@ const VideoPlayer = () => {
                     </div>
                 </div>
             ))}
+            <Button className='flex text-white text-xl items-center my-auto'>
+                    <Link2Icon className='mr-2'/>
+                    <Link to="/"> See More</Link>
+                </Button>
         </div>
         </>
     );

@@ -6,6 +6,8 @@ import About from "./components/About"
 import VideoPlayer from "./components/video_player"
 import Services from "./components/services"  
 import { createBrowserRouter , RouterProvider} from "react-router-dom"
+import AudioPlayer from "./components/audioPlayer"
+import Footer from "./components/footer"
 
 
 function App() {
@@ -16,7 +18,10 @@ function App() {
       <Navbar/> 
       <Home/>
       <Content/>
-      <VideoPlayer/></>
+      <VideoPlayer/>
+      <AudioPlayer/>
+      <Footer/>
+      </>
     },
     {
       path: "/login",  

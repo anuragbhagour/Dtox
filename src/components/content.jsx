@@ -1,31 +1,44 @@
 import React from 'react';
 import { Button } from './ui/button';
 import BlurText from "./content-title";
+import Squares from './square-pattern';
 
-function Content() {
-  const handleAnimationComplete = () => {
-    console.log('Animation completed');
-  };
-
+const Content = () => {
   return (
-      <div className="h-[800px] w-screen">
-        <div className="flex flex-col justify-center items-center h-full">
-          <div className="text-center pt-[50px]">
+    <div className="relative h-screen w-screen overflow-hidden bg-black">
+      {/* Background Squares */}
+      <Squares
+        speed={0.5}
+        squareSize={40}
+        direction="diagonal"
+        borderColor="#fff"
+        hoverFillColor="#222"
+        className="absolute inset-0 z-0"
+      />
+
+      {/* Text and Button */}
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center">
+        <div className="grid grid-cols-12 grid-rows-6 w-full h-full text-center">
+          {/* Text inside the grid */}
+          <div className="col-span-12 row-span-6 flex items-center justify-center">
             <BlurText
-              text="Whose gonna carry the boats and the logs!!!"
+              text="Dtox is a obvious step towards Detoxifying yourself"
               delay={150}
               animateBy="words"
               direction="top"
-              onAnimationComplete={handleAnimationComplete}
-              className="text-5xl text-white font-extrabold mb-8 white-shadow"
+              onAnimationComplete={() => console.log("Animation complete")}
+              className="text-5xl text-center text-white font-extrabold white-shadow"
             />
           </div>
-          <div className="mt-4 pt-[450px]">
-            <Button size="lg">Explore more</Button>
-          </div>
+        </div>
+        <div className="mt-8 mb-16">
+          <Button size="lg" onClick={() =>
+          document.getElementById("section1").scrollIntoView({ behavior: "smooth" })
+        }>Explore more</Button>
         </div>
       </div>
+    </div>
   );
-}
+};
 
 export default Content;
